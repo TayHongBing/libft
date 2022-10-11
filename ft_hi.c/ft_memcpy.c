@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:49:46 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/03 15:52:42 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:00:39 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*s_src;
 
 	i = 0;
-	s_dst = dst;
-	s_src = src;
-	if ((s_dst && s_src) != NULL)
+	s_dst = (char *)dst;
+	s_src = (char *)src;
+	if (s_dst == NULL && s_src == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		while (i < n)
-		{
-			s_dst[i] = s_src[i];
-			i++;
-		}
+		s_dst[i] = s_src[i];
+		i++;
 	}
 	return (dst);
 }

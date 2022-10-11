@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 19:51:48 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/03 19:52:01 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:22:35 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t		i;
-	const char	*p_s1;
-	const char	*p_s2;
+	unsigned const char	*p_s1;
+	unsigned const char	*p_s2;
 
 	i = 0;
-	p_s1 = s1;
-	p_s2 = s2;
-	while ((p_s1[i] != '\0' || p_s2[i] != '\0') && i < n)
+	p_s1 = (unsigned char *)s1;
+	p_s2 = (unsigned char *)s2;
+	while (i < n)
 	{
 		if (p_s1[i] != p_s2[i])
 			return (p_s1[i] - p_s2[i]);

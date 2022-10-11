@@ -6,13 +6,13 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:28:53 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/03 18:29:08 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:23:57 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		c += 32;

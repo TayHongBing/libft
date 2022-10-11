@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:10:37 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/03 15:13:24 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:15:55 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
-	char	*store;
+	unsigned char	*store;
 
 	i = 0;
 	store = (unsigned char *)b;

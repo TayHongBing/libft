@@ -6,11 +6,11 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 14:33:26 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/03 14:45:50 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 19:25:39 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

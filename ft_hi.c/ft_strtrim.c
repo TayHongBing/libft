@@ -6,11 +6,11 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:53:55 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/04 17:54:05 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:25:19 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	is_in_set(char c, char const *set)
 {
@@ -33,6 +33,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	back;
 	size_t	i;
 
+	i = 0;
 	front = 0;
 	back = ft_strlen(s1) - 1;
 	while (s1[front] != '\0' && is_in_set(s1[front], set))

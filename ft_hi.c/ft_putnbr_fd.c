@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:59:50 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/06 20:59:50 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:17:10 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 	{
-		ft_putnbr_fd(n / 10);
-		ft_putnbr_fd(n % 10);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 }

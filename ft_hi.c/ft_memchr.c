@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 19:39:42 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/03 19:50:36 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/11 19:55:13 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (p_s[i] == c)
+		if (p_s[i] == (unsigned char)c)
 			return ((char *)&s[i]);
 		i++;
 	}

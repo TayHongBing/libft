@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 19:59:24 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/04 20:01:19 by thong-bi         ###   ########.fr       */
+/*   Created: 2022/10/06 16:31:14 by thong-bi          #+#    #+#             */
+/*   Updated: 2022/10/06 16:31:14 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>	
+#include <stdlib.h>
 
 static int	len(int nbr)
 {
@@ -36,6 +36,13 @@ static int	len(int nbr)
 	return (count);
 }
 
+static int	absolute(int nbr)
+{
+	if (nbr < 0)
+		return (-nbr);
+	return(nbr);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
@@ -43,33 +50,27 @@ char	*ft_itoa(int n)
 
 	length = len(n);
 	str = (char *)malloc(sizeof(char) * length +1);
-	if (!str)
-		return (NULL);
 	str[length--] = '\0';
 	if (n == 0)
-	{
 		str[0] = '0';
-		return (str);
-	}
-	if (n == -2147483648)
+	else if (n == -2147483648)
 	{
 		str[length--] = '8';
 		n /= 10;
 	}
 	if (n < 0)
-	{
 		str[0] = '-';
-		n *= -1;
-	}
-	while (n > 0)
+	while (n != 0)
 	{
-		str[length--] = 48 + (n % 10);
+		str[length] = '0' + absolute(n % 10);
 		n /= 10;
+		length--;
 	}
 	return (str);
 }
 
 // int	main(void)
 // {
-// 	printf("%s\n", ft_itoa(0));
+// 	printf("%s\n", ft_itoa(-2147483648));
+// 	return 0;
 // }
