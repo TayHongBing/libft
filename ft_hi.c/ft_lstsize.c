@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:57:57 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/12 15:57:57 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:00:39 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
-	while (lst[i] != 0)
+	while (lst)
 	{
-		lst = lst.next;
+		lst = lst->next;
 		i++;
 	}
 	return (i);

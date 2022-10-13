@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:09:48 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/11 15:16:13 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:15:14 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	unsigned char	*s_dst;
+	size_t				i;
+	unsigned char		*s_dst;
 	const unsigned char	*s_src;
 
 	i = 0;
@@ -25,11 +25,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	if (src < dst)
 	{
-		while (len > 0)
-		{
-			s_dst[len - 1] = s_src[len - 1];
-			len --;
-		}
+		while (len-- > 0)
+			s_dst[len] = s_src[len];
 	}
 	else
 	{

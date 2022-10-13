@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:31:14 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/06 16:31:14 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:29:10 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	len(int nbr)
 		nbr *= -1;
 		count++;
 	}
+	if (nbr == 0)
+		return (1);
 	while (nbr > 0)
 	{
 		nbr /= 10;
@@ -40,7 +42,7 @@ static int	absolute(int nbr)
 {
 	if (nbr < 0)
 		return (-nbr);
-	return(nbr);
+	return (nbr);
 }
 
 char	*ft_itoa(int n)
@@ -49,7 +51,9 @@ char	*ft_itoa(int n)
 	int		length;
 
 	length = len(n);
-	str = (char *)malloc(sizeof(char) * length +1);
+	str = (char *)malloc(sizeof(char) * length + 1);
+	if (!str)
+		return (NULL);
 	str[length--] = '\0';
 	if (n == 0)
 		str[0] = '0';

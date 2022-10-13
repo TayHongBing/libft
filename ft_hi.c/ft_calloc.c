@@ -6,12 +6,11 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:26:17 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/04 14:28:24 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:39:47 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -22,7 +21,7 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = (void *)malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	while (i < count)
+	while (i < count * size)
 	{
 		ptr[i] = 0;
 		i++;

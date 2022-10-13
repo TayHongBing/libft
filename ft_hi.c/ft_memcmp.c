@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 19:51:48 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/11 15:22:35 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:05:34 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t		i;
+	size_t				i;
 	unsigned const char	*p_s1;
 	unsigned const char	*p_s2;
 

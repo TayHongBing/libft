@@ -6,12 +6,14 @@
 #    By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/07 18:09:22 by thong-bi          #+#    #+#              #
-#    Updated: 2022/10/11 14:11:44 by thong-bi         ###   ########.fr        #
+#    Updated: 2022/10/13 16:00:31 by thong-bi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= ${wildcard ft_*.c}
+BSRCS	= ${wildcard ft_lst*.c}
 OBJS	= ${SRCS:.c=.o}
+BOBJS	= ${BSRCS:.c=.o}
 INCS	= includes
 NAME	= libft.a
 LIBC	= ar rc
@@ -21,15 +23,18 @@ RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror
 
 # .c.o:
-# 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCS}
+#  	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCS}
 
 ${NAME}: ${OBJS}
 	${LIBC} ${NAME} ${OBJS}
 
-all: ${NAME}
+all: ${NAME} bonus
+
+bonus: ${NAME} ${BOBJS}
+		${LIBC} ${NAME} ${BOBJS}
 
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${BOBJS}
 
 fclean: clean
 	${RM} ${NAME}

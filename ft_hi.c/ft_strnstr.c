@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 13:47:15 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/04 13:47:31 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:33:49 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (!len && !haystack)
+		return (NULL);
 	i = 0;
 	if (needle[0] == '\0')
 	{

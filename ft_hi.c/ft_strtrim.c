@@ -6,49 +6,63 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:53:55 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/11 14:25:19 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 18:48:17 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_in_set(char c, char const *set)
+static char	*get_trim(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (set[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (set[i] == c)
-			return (1);
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
 		i++;
 	}
-	return (0);
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (NULL);
+}
+
+static char	*trimming(const char *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*ptr;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	ptr = (char *)malloc(len * sizeof(char) + 1);
+	if (!ptr)
+		return (NULL);
+	while (i < len && s[start] != '\0')
+	{
+		ptr[i] = s[start];
+		start++;
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ptr;
-	size_t	front;
-	size_t	back;
-	size_t	i;
+	size_t	len;
+	char	*new;
 
-	i = 0;
-	front = 0;
-	back = ft_strlen(s1) - 1;
-	while (s1[front] != '\0' && is_in_set(s1[front], set))
-		front++;
-	while (s1[back] != '\0' && is_in_set(s1[back], set))
-		back--;
-	ptr = (char *)malloc((back - front) * sizeof(char) + 1);
-	if (!ptr)
+	if (!s1 || !set)
 		return (NULL);
-	while (front < back)
-	{
-		ptr[i] = s1[front];
-		i++;
-		front++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	while (*s1 && get_trim(set, *s1))
+		s1++;
+	len = ft_strlen(s1);
+	while ((len > 0) && get_trim(set, s1[len]))
+		len--;
+	new = trimming((char *)s1, 0, len + 1);
+	return (new);
 }

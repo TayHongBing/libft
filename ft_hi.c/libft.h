@@ -6,11 +6,11 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 17:04:16 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/11 18:30:42 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:04:19 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	LIBFT_H
+#ifndef LIBFT_H
 # define LIBFT_H
 
 # include <stdlib.h>
@@ -18,8 +18,8 @@
 
 typedef struct s_list
 {
-	void	*content;
-	struct	s_list	*next;
+	void			*content;
+	struct s_list	*next;
 
 }	t_list;
 

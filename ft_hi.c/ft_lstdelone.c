@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:16:48 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/12 16:16:48 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:01:10 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst && del)
 	{
-		del (lst.content);
+		del (lst->content);
 		free (lst);
 	}
 }

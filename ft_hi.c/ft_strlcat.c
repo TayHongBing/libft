@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:01:51 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/11 19:43:06 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:29:01 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	j = 0;
+	if (!dstsize && !dst)
+		return (ft_strlen(src));
 	dlen = ft_strlen(dst);
 	slen = ft_strlen(src);
 	if (dstsize > ft_strlen((const char *)dst))
@@ -28,11 +30,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		while (dst[i] != '\0')
 			i++;
 		while (src[j] != '\0' && j < dstsize - dlen - 1)
-		{
-			dst[i] = src[j];
-			i++;
-			j++;
-		}
+			dst[i++] = src[j++];
 		dst[i] = '\0';
 		return (dlen + slen);
 	}

@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 19:01:54 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/11 17:35:27 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:06:31 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (s[i] == (char)c)
 		return ((char *)&s[i]);
-
 	return (NULL);
 }
