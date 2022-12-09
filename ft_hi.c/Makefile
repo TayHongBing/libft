@@ -6,7 +6,7 @@
 #    By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/07 18:09:22 by thong-bi          #+#    #+#              #
-#    Updated: 2022/10/13 16:00:31 by thong-bi         ###   ########.fr        #
+#    Updated: 2022/12/07 14:29:01 by thong-bi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,18 +25,18 @@ CFLAGS	= -Wall -Wextra -Werror
 # .c.o:
 #  	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCS}
 
-${NAME}: ${OBJS}
+$(NAME): ${OBJS}
 	${LIBC} ${NAME} ${OBJS}
 
-all: ${NAME} bonus
+all: $(NAME) bonus
 
-bonus: ${NAME} ${BOBJS}
-		${LIBC} ${NAME} ${BOBJS}
+bonus: $(NAME) ${BOBJS}
+		${LIBC} $(NAME) ${BOBJS}
 
 clean:
 	${RM} ${OBJS} ${BOBJS}
 
 fclean: clean
-	${RM} ${NAME}
+	${RM} $(NAME)
 
 re: fclean all

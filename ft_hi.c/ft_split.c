@@ -6,99 +6,82 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:35:24 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/04 18:37:51 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:34:39 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
 
-static int	check_sep(char str, char *charset)
-{
-	int	i;
-
-	i = 0;
-	while (charset[i] != '\0')
-		if (charset[i++] == str)
-			return (1);
-	return (0);
-}
-
-static int	word_count(char *str, char *charset)
+static int	word_count(char const *str, char c)
 {
 	int	count;
+	int	trig;
 
 	count = 0;
+	trig = 0;
 	while (*str)
 	{
-		while (*str && check_sep(*str, charset))
-			str++;
-		if (*str)
+		if (*str != c && trig == 0)
+		{
+			trig = 1;
 			count++;
-		while (*str && !check_sep(*str, charset))
-			str++;
+		}
+		else if (*str == c)
+			trig = 0;
+		str++;
 	}
 	return (count);
 }
 
-static int	word_length(char *str, char *charset)
+static char	*word_dup(char const *s, int end, int start)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] && !check_sep(str[i], charset))
-		i++;
-	return (i);
-}
-
-static char	*combine_word(char *str, char *sep)
-{
-	char	*word;
+	char	*store;
 	int		i;
 
 	i = 0;
-	word = malloc(sizeof(char) * word_length(str, sep) + 1);
-	if (!word)
-		return (NULL);
-	while (str[i] && !check_sep(str[i], sep))
-	{
-		word[i] = str[i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
+	store = malloc((end - start + 1) * sizeof(char));
+	if (!store)
+		return (0);
+	while (start < end)
+		store[i++] = s[start++];
+	store[i] = '\0';
+	return (store);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		count;
+	size_t	i;
+	size_t	j;
+	int		trig;
 
-	count = 0;
-	arr = malloc(sizeof(char *) * word_count(str, charset) + 1);
+	i = 0;
+	j = 0;
+	trig = -1;
+	arr = malloc((word_count(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
-	while (*str)
+	while (i <= ft_strlen(s))
 	{
-		while (*str && check_sep(*str, charset))
-			str++;
-		if (*str)
+		if (s[i] != c && trig < 0)
+			trig = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && trig >= 0)
 		{
-			arr[count] = combine_word(str, charset);
-			count++;
+			arr[j++] = word_dup(s, i, trig);
+			trig = -1;
 		}
-		while (*str && !check_sep(*str, charset))
-			str++;
+		i++;
 	}
-	arr[count] = 0;
+	arr[j] = 0;
 	return (arr);
 }
 
 // int  main()
 // {
 // 	int		index = 0;
-// 	char *str = "Hello World";
-// 	char *charset = " ";
+// 	char *str = "      split       this for   me  !       ";
+// 	char charset = ' ';
 // 	char **split;
 
 // 	split = ft_split(str, charset);

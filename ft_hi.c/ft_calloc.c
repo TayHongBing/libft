@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:26:17 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/13 17:39:47 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:57:31 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	i = 0;
 	ptr = (void *)malloc(count * size);
-	if (!ptr)
+	if (!ptr || count >= SIZE_MAX / size)
 		return (NULL);
 	while (i < count * size)
 	{

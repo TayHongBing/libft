@@ -6,7 +6,7 @@
 /*   By: thong-bi <thong-bi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:10:09 by thong-bi          #+#    #+#             */
-/*   Updated: 2022/10/13 16:01:25 by thong-bi         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:09:32 by thong-bi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (new)
 	{
-		if (!*lst)
+		if (*lst != NULL)
+		{
+			tmp = ft_lstlast(*lst);
+			tmp->next = new;
+		}
+		else
 			*lst = new;
-		tmp = ft_lstlast(*lst);
-		tmp->next = new;
 	}
 }
